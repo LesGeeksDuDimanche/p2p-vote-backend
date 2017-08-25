@@ -25,6 +25,10 @@
     "url": "https://github.com/omphalos/kad-webrtc"
   },
   "dependencies": {
+    "bignum": "^0.11.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
     "hat": "0.0.3",
     "kad": "^1.5.5",
     "lodash": "^4.17.4",
