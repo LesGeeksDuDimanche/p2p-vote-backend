@@ -39,7 +39,7 @@ ws.on('connection', function(connection) {
 });
 
 server.on('request', function(req, res) {
-  var filePath = __dirname + '/../..' + req.url;
+  var filePath = __dirname + '/htdocs' + req.url;
   fs.readFile(filePath, function(err, file) {
     if(err) {
       var message = 'invalid file: ' + filePath;

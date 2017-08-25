@@ -2,7 +2,7 @@
 
 var kademlia = require('kad');
 var EventEmitter = require('events').EventEmitter;
-var WebRTC = require('../..');
+var WebRTC = require('..');
 
 var node;
 
@@ -13,8 +13,8 @@ document.querySelector('#node').addEventListener('submit', function (e) {
   var element = document.querySelector('#node input[name=id]');
   var id_string = element.value;
 
-  var webSocket = require('../shared/web-socket');
-  var SignalClient = require('../shared/signal-client');
+  var webSocket = require('../web-socket');
+  var SignalClient = require('../signal-client');
   var signaller = new SignalClient(id_string);
 
   webSocket.on('open', function() {
@@ -92,4 +92,3 @@ document.querySelector('#put').addEventListener('submit', function (e) {
     alert("Stored!");
   });
 });
-
