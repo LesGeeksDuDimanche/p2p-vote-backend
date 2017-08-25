@@ -84,13 +84,14 @@ exports.sign = function (req, res) {
     // Author: github/raullorenzo 2016
 
     var data = bignum(req.body.data);
-    var d = keys.privateKey.d.toString();
-    var n = keys.publicKey.n.toString();
-    console.log('data', blind);
+    // var d = keys.privateKey.d.toString();
+    // var n = keys.publicKey.n.toString();
+    // console.log('data', data);
     //AQUI NO ME VA me salta que la bc.powm no es una funcion --que raro-- en pallier me pasa lo mismo//
-    var teta = keys.privateKey.encrypt(blind);
-    console.log('signed data', teta);
+    var teta = keys.privateKey.encrypt(data);
+    console.log('signed data', teta.toString());
     //SI FUNCIONA LO ANTERIOR EL SERVIDOR TE DA UNA FIRMA VALIDA"
+    userEntry.registered = true;
 
     registry[user.email] = userEntry;
 
