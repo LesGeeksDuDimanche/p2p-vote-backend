@@ -27,6 +27,7 @@
   "dependencies": {
     "hat": "0.0.3",
     "kad": "^1.5.5",
+    "lodash": "^4.17.4",
     "simple-peer": "^6.2.0"
   },
   "devDependencies": {

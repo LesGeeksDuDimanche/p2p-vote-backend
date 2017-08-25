@@ -4,6 +4,7 @@
 
 
 const port = process.env.PORT || 8080;
+const ip = process.env.IP || undefined;
 
 
 const express = require('express');
@@ -12,11 +13,24 @@ const http = require('http');
 const app = express();
 app.use(express.static('htdocs'));
 
+// middleware for express
+var cors = require('cors');
+var bodyParser = require('body-parser')
 
-const server = http.createServer(app).listen(port);
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
-const signaller = require('./components/signaller.js');
-signaller(server);
+// load API
+require('./api')(app);
 
+// load signalling
+const server = http.createServer(app);
+require('./signaller')(server);
 
-console.log('listening on port', port);
+// start server
+server.listen(port, ip, function () {
+  console.log('listening on port', port);
+});
